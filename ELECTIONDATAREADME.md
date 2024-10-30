@@ -1,0 +1,1 @@
+This project analyzes the word frequency in speeches from two political candidates, Kamala Harris and Donald Trump, by processing text files of their speeches and excluding common stop words (e.g., "a," "the," "and"). The program saves the word frequency analysis to separate CSV files for each candidate, making it easy to compare and visualize word usage.
