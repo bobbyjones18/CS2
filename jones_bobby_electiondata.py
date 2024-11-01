@@ -2,7 +2,7 @@
 Author: Bobby Jones
 Date: 10/29/24
 Description: This program processes text files containing speeches, calculates the frequency of words, and saves the results as CSV files. 
-Version Log: 1.0
+Version Log: 1.1
 Bugs: None
 Features: None
 Sources:https://www.py4e.com/html3/09-dictionaries, https://www.w3schools.com/python/python_ref_dictionary.asp
@@ -13,8 +13,8 @@ import string
 import csv
 
 # Define file paths for the speech text files
-harris_file = r"C:\Users\bjones25\Downloads\comp sci election\kamala_new.txt"
-trump_file = r"C:\Users\bjones25\Downloads\comp sci election\cleaned_trump_speech_transcript.txt"
+harris_file = r"C:\Users\bjones25\Downloads\kamala_new.txt"
+trump_file = r"C:\Users\bjones25\Downloads\cleaned_trump_speech_transcript.txt"
 
 # List of common words (stop words) to exclude
 stop_words = set(["a", "i", "the", "is", "and", "or", "in", "of", "him", "most", "get", "here", "put", "many", "lets",
@@ -78,4 +78,3 @@ trump_word_freq = process_text(trump_file)
 # Save word frequencies to CSV files
 save_to_csv(harris_word_freq, 'harris_word_freq.csv')
 save_to_csv(trump_word_freq, 'trump_word_freq.csv')
-
