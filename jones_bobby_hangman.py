@@ -2,9 +2,8 @@
 Author: Bobby Jones
 Date: 12/19/24
 Description: Allows the user to play hangman against the computer from a set dictionary of random words from which it chooses randomly
-Bugs: Need to add a display for guessed letters
+Bugs: None
 '''
-
 import random
 
 def select_word():
@@ -77,7 +76,7 @@ def draw_hangman(guesses_left):
            +---+
            |   |
            0   |
-          /|\  |
+          /|\\  |
                |
                |
         =========
@@ -86,7 +85,7 @@ def draw_hangman(guesses_left):
            +---+
            |   |
            0   |
-          /|\  |
+          /|\\  |
           /    |
                |
         =========
@@ -95,8 +94,8 @@ def draw_hangman(guesses_left):
            +---+
            |   |
            0   |
-          /|\  |
-          / \  |
+          /|\\  |
+          / \\  |
                |
         =========
         """
@@ -122,6 +121,7 @@ def play_game():
     """
     word = select_word()
     guessed_letters = set()
+    incorrect_letters = set()
     incorrect_guesses = 0
     max_guesses = 6
 
@@ -130,10 +130,11 @@ def play_game():
         display_board(word, guessed_letters)
         draw_hangman(max_guesses - incorrect_guesses)
         print(f"Guesses left: {max_guesses - incorrect_guesses}")
+        print(f"Incorrect guesses: {', '.join(sorted(incorrect_letters))}")
         
         guess = get_valid_input()
         
-        if guess in guessed_letters:
+        if guess in guessed_letters or guess in incorrect_letters:
             print("You already guessed that letter!")
         elif guess in word:
             guessed_letters.add(guess)
@@ -142,7 +143,7 @@ def play_game():
                 print(f"Congratulations! You guessed the word: {word}")
                 return
         else:
-            guessed_letters.add(guess)
+            incorrect_letters.add(guess)
             incorrect_guesses += 1
             print("Incorrect guess.")
 
@@ -162,5 +163,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
